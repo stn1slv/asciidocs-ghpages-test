@@ -1,1 +1,9 @@
 = asciidocs-ghpages-test
+
+This is a test project to see how to use Asciidoc with GitHub Pages.
+
+== First Page
+
+This is the first page of the document.
+
+link:second-page.adoc[]
