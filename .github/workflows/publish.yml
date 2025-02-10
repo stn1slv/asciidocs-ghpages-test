@@ -20,21 +20,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
 
-      # Кэширование node_modules
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install Antora and dependencies
-        run: |
-          npm i -g @antora/cli@3.1 @antora/site-generator@3.1
-          npm i -g @antora/lunr-extension
+      # Глобальная установка Antora без кэширования
+      - name: Install Antora
+        run: npm i -g @antora/cli@3.1 @antora/site-generator@3.1
 
       - name: Build Antora documentation
         run: |
