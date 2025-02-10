@@ -7,9 +7,5 @@ content:
     - url: .
       branches: main
 
-ui:
-  bundle:
-    url: ./ui-bundle.zip  # Укажите путь к вашему UI-бандлу (или удалите эту строку, если не используете кастомный UI)
-
 output:
   dir: ./build
