@@ -3,8 +3,7 @@ name: Build and Deploy Antora Docs
 on:
   push:
     branches:
-      - main  # или master, в зависимости от вашей основной ветки
-  # Опционально: добавьте возможность запуска вручную
+      - main
   workflow_dispatch:
 
 jobs:
@@ -15,13 +14,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Важно для Antora, чтобы получить всю историю git
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
+
+      # Кэширование node_modules
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install Antora and dependencies
         run: |
@@ -32,15 +40,9 @@ jobs:
         run: |
           antora --fetch antora-playbook.yml
 
-      # Опционально: проверка сгенерированных файлов
-      - name: List generated files
-        run: |
-          ls -la build
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build  # директория, куда Antora генерирует сайт
-          force_orphan: true  # создает только одну ветку без истории
-          commit_message: "Deploy documentation"
+          publish_dir: build
+          force_orphan: true
