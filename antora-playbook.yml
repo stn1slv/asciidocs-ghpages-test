@@ -9,8 +9,7 @@ content:
 
 ui:
   bundle:
-    url: ./ui-bundle.zip
-  start_path: .
+    url: ./ui-bundle.zip  # Укажите путь к вашему UI-бандлу (или удалите эту строку, если не используете кастомный UI)
 
 output:
   dir: ./build
