@@ -1,0 +1,20 @@
+site:
+  title: Example Documentation Site
+  start_page: component::index.adoc
+
+content:
+  sources:
+    - url: https://github.com/your-repo/your-docs-repo.git
+      branches: main
+
+ui:
+  bundle:
+    url: https://example.com/path/to/your/ui-bundle.zip
+    snapshot: true
+
+asciidoc:
+  attributes:
+    showtitle: true
+    icons: font
+    sectanchors: true
+    sectnums: true
