@@ -5,7 +5,13 @@
 
 == Repository Ontology
 
-include::guidelines-repository-ontology.adoc[]
+[plantuml]
+--
+@startuml
+include::../diagrams/repository-ontology.puml[]
+@enduml
+--
+//image:../diagrams/repository-ontology.svg[]
 
 == Naming Convention
 

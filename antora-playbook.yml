@@ -17,10 +17,5 @@ ui:
       - .nojekyll
   - path: .nojekyll
 
-# asciidoc:
-#   extensions:
-#     - asciidoctor-plantuml
-#     - asciidoctor-diagram
-
 output:
   dir: ./build

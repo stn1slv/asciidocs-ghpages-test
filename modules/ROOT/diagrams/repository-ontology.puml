@@ -1,5 +1,3 @@
-[plantuml,,png]
---
 @startuml
 !include <archimate/Archimate>
 
@@ -15,4 +13,3 @@ Rel_Flow_Right(interface, receiver, "receives")
 Rel_Access_Up(interface, data, "refers to")
 
 @enduml
---
