@@ -1,0 +1,6 @@
+name: project-name
+version: ~
+title: Project Name
+# start_page: index.adoc
+nav:
+- modules/ROOT/nav.adoc
