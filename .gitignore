@@ -1,3 +1,5 @@
 /build/
 /node_modules/
 /modules/ROOT/pages/.asciidoctor
+/modules/ROOT/pages/images
+
